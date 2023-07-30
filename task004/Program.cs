@@ -6,6 +6,24 @@
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
+bool SeekNumber3DArray(int[,,] array, int number)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                if (array[i, j, k] == number)
+                {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
 void Print3dArray(int[,,] massive)
 {
     for (int i = 0; i < massive.GetLength(0); i++)
@@ -30,7 +48,9 @@ int[,,] CreateAndFill3DArray(int sizeX, int sizeY, int sizeZ, int startValue, in
         {
             for (int z = 0; z < sizeZ; z++)
             {
-                matrix[x, y, z] = new Random().Next(startValue, finishValue + 1);
+                int num = new Random().Next(startValue, finishValue + 1);
+                if (SeekNumber3DArray(matrix, num)) matrix[x, y, z] = num;
+                else z--;
             }
         }
     }
