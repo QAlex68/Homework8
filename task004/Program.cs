@@ -66,8 +66,12 @@ int GetInput(string text)
 int x = GetInput("Введите количество строк массива: ");
 int y = GetInput("Введите количество столбцов массива: ");
 int z = GetInput("Введите глубину массива: ");
-int start = GetInput("Введите начало диапазона значений элементов: ");
-int finish = GetInput("Введите конец диапазона значений элементов: ");
-int[,,] array3D = CreateAndFill3DArray(x, y, z, start, finish);
-Console.WriteLine($"Сгенерирован массив [{x}x{y}x{z}] в диапазоне от {start} до {finish} !");
-Print3dArray(array3D);
+if (x * y * z < 90)
+{
+    int start = GetInput("Введите начало диапазона значений элементов: ");
+    int finish = GetInput("Введите конец диапазона значений элементов: ");
+    int[,,] array3D = CreateAndFill3DArray(x, y, z, start, finish);
+    Console.WriteLine($"Сгенерирован массив [{x}x{y}x{z}] в диапазоне от {start} до {finish} !");
+    Print3dArray(array3D);
+}
+else Console.WriteLine($"Недопустимая размерность массива!!");
