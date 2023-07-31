@@ -66,7 +66,7 @@ int GetInput(string text)
 int x = GetInput("Введите количество строк массива: ");
 int y = GetInput("Введите количество столбцов массива: ");
 int z = GetInput("Введите глубину массива: ");
-if (x * y * z < 90)
+if (x * y * z <= 90)
 {
     int start = GetInput("Введите начало диапазона значений элементов: ");
     int finish = GetInput("Введите конец диапазона значений элементов: ");
